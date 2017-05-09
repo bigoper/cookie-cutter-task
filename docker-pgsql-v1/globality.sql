@@ -13,6 +13,6 @@ CREATE TABLE members
 );
 COMMENT ON TABLE globality.members IS 'demo data for test';
 
-INSERT INTO globality.members (id, f_name, l_name, email, mobile) VALUES (1, 'avi',     'ivgi',         'ivgiavi@gmail.com',        '424-653-4911');
-INSERT INTO globality.members (id, f_name, l_name, email, mobile) VALUES (2, 'amit',    'ben natan',    'amit@globality.com',       '424-653-4922');
-INSERT INTO globality.members (id, f_name, l_name, email, mobile) VALUES (3, 'run',     'test',         'run.test@globality.com',   '424-653-4933');
+INSERT INTO globality.members (id, f_name, l_name, email, mobile) VALUES (1, 'Daniel',     'Li',         'daniel@gmail.com',        '424-653-4711');
+INSERT INTO globality.members (id, f_name, l_name, email, mobile) VALUES (2, 'Loren',    'Who',    'loren@gmail.com',       '424-653-4712');
+INSERT INTO globality.members (id, f_name, l_name, email, mobile) VALUES (3, 'Miriam',     'Bell',         'miriam.b@gmail.com',   '424-653-4713');
