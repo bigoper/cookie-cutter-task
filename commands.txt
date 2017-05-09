@@ -1,0 +1,53 @@
+docker-compose rm -f
+docker-compose pull
+docker-compose up --build -d
+
+docker build -t docker-flask:latest .
+docker run -d -p 5000:5000 docker-flask
+
+docker ps -a
+
+docker stop $(docker ps -a -sq)
+docker rm $(docker ps -a -q)
+
+docker-compose build
+docker-compose up -d
+
+==============================================================
+1. in project root folder
+docker-machine create -d virtualbox dev;
+
+2. list machines
+docker-machine ls
+
+3. define the services in docker-compose and build
+docker-compose build
+docker-compose up -d
+
+psql -h 192.168.99.100 -p 5432 -U postgres --password
+
+==============================================================
+
+docker exec -t -i dfs /bin/bash
+docker exec -t -i dfsv1 /bin/bash
+docker exec -t -i pgsql /bin/bash
+
+
+docker run -d -p 5432:5432 --name postgresql --env 'DB_USER=globality' --env 'DB_PASS=globality' --env 'DB_NAME=globality' zokeber/postgresql
+docker create -it -p 5432:5432 --name postgresql --env 'DB_USER=globality' --env 'DB_PASS=globality' --env 'DB_NAME=globa./cl   lity' zokeber/postgresql
+
+docker network create -d bridge --subnet 172.25.0.0/16 demo_network
+docker network connect demo_network pgsql
+docker network connect demo_network dfsv1
+docker network inspect demo_network
+
+cat globality.sql | docker exec -i pgsql psql -U globality
+
+
+
+
+
+docker rmi $(docker images -a -q)
+docker rm $(docker ps -a -f status=exited -q)
+docker stop $(docker ps -a -q)
+docker rm $(docker ps -a -q)

@@ -12,6 +12,7 @@ Running a Flask app with pgsql on two docker containers
 ## Resources
 - [docker-compose](https://docs.docker.com/compose)
 - [Docker PGSql](https://github.com/sameersbn/docker-postgresql)
+- [docker commands](https://www.digitalocean.com/community/tutorials/how-to-remove-docker-images-containers-and-volumes)
 
 ## General idea
 We'll be running two docker containers, flask for the front-end and postgresql for the back-end.
@@ -27,6 +28,7 @@ Start by cloning the git repository
 We need to allow the 2 containers to communicate
 - run the following commands to create a network to hold the containers.
 ```
+docker network rm demo_network
 docker network create -d bridge --subnet 172.72.72.0/24 demo_network
 docker network inspect demo_network
 ```
@@ -41,6 +43,7 @@ chmod +x *.sh
 ./clean-docker.sh   
 ./build.sh   
 ./run.sh
+docker ps
 ```
 - database info
     - db_user: globality
