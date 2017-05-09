@@ -8,7 +8,6 @@ Running a Flask app with pgsql on two docker containers
 
     ```qlacodegen --outfile models.py postgres://globality:globality@127.0.0.1:5432/globality```
 
-
 ## Resources
 - [docker-compose](https://docs.docker.com/compose)
 - [Docker PGSql](https://github.com/sameersbn/docker-postgresql)
