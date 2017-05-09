@@ -1,0 +1,52 @@
+version: '2'
+services:
+ PostgreSQL:
+   restart: always
+   container_name: pgsql
+   image: sameersbn/postgresql:9.6-2
+   networks:
+     demo_network:
+      ipv4_address: 172.72.72.10
+   ports:
+     - "5432:5432"
+   environment:
+     - DEBUG=false
+
+     - DB_USER=globality
+     - DB_PASS=globality
+     - DB_NAME=globality
+     - DB_TEMPLATE=
+
+     - DB_EXTENSION=
+
+     - REPLICATION_MODE=
+     - REPLICATION_USER=
+     - REPLICATION_PASS=
+     - REPLICATION_SSLMODE=
+   volumes:
+     - /Users/bigoper/GitHub/globality/cookie-cutter-task/docker-pgsql-v1:/var/lib/postgresql
+
+ web:
+   restart: always
+   container_name: dfsv1
+   build:
+    context: ./docker-flask-simple-v1
+    dockerfile: Dockerfile
+   networks:
+     demo_network:
+      ipv4_address: 172.72.72.11
+   ports:
+     - "5000:5000"
+   environment:
+     - DEBUG=false
+   volumes:
+     - /Users/bigoper/GitHub/globality/cookie-cutter-task/docker-flask-simple-v1:/app
+
+networks:
+  demo_network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      -
+        subnet: 172.72.72.0/24

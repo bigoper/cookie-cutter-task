@@ -1,8 +1,0 @@
-# Flask
-Flask
-Python
-
-# Database
-Flask-SQLAlchemy
-SQLAlchemy
-psycopg2
