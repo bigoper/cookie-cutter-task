@@ -11,7 +11,9 @@ Running a Flask app with pgsql on two docker containers
 ## Resources
 - [docker-compose](https://docs.docker.com/compose)
 - [docker pgsql](https://github.com/sameersbn/docker-postgresql)
+- [docker pgsql hub](https://hub.docker.com/r/sameersbn/postgresql/)
 - [docker commands](https://www.digitalocean.com/community/tutorials/how-to-remove-docker-images-containers-and-volumes)
+- [dockerize postgresql](https://docs.docker.com/engine/examples/postgresql_service/#installing-postgresql-on-docker)
 
 ## General idea
 We'll be running two docker containers, flask for the front-end and postgresql for the back-end.
