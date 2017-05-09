@@ -10,7 +10,7 @@ Running a Flask app with pgsql on two docker containers
 
 ## Resources
 - [docker-compose](https://docs.docker.com/compose)
-- [Docker PGSql](https://github.com/sameersbn/docker-postgresql)
+- [docker pgsql](https://github.com/sameersbn/docker-postgresql)
 - [docker commands](https://www.digitalocean.com/community/tutorials/how-to-remove-docker-images-containers-and-volumes)
 
 ## General idea
