@@ -13,7 +13,7 @@ Running a Flask app with pgsql on two docker containers
 - [docker-compose](https://docs.docker.com/compose)
 - [Docker PGSql](https://github.com/sameersbn/docker-postgresql)
 
-##General idea
+## General idea
 We'll be running two docker containers, flask for the front-end and postgresql for the back-end.
 
 The main (index) page will present data from the back-end, a list of members.
