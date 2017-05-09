@@ -23,8 +23,12 @@ The main (index) page will present data from the back-end, a list of members.
 
 ## Usage
 - Start by cloning the git repository
-- change into the project's root dir
+- change into the project's root dir and into the ```demo``` folder.
 - run ```docker-compose up```
+- import demo data, from within the ```demo/docker-pgsql-v1``` folder
 
+```
+cat globality.sql | docker exec -i pgsql psql -U globality
+```
 ## Test
 - open your browser to `http://0.0.0.0:5000/` you'll see the index page and the data from the database.
