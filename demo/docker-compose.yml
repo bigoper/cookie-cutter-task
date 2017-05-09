@@ -24,7 +24,7 @@ services:
      - REPLICATION_PASS=
      - REPLICATION_SSLMODE=
    volumes:
-     - /Users/bigoper/GitHub/globality/docker-coockiecutter-python-flask-pgsql/docker-pgsql-v1:/var/lib/postgresql
+     - /Users/bigoper/GitHub/globality/cookie-cutter-task/demo/docker-pgsql-v1:/var/lib/postgresql
 
  web:
    restart: always
@@ -40,7 +40,7 @@ services:
    environment:
      - DEBUG=false
    volumes:
-     - /Users/bigoper/GitHub/globality/docker-coockiecutter-python-flask-pgsql/docker-flask-simple-v1:/app
+     - /Users/bigoper/GitHub/globality/cookie-cutter-task/demo/docker-flask-simple-v1:/app
 
 networks:
   demo_network:
