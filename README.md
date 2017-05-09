@@ -33,7 +33,7 @@ We need to allow the 2 containers to communicate
 - the last command will show you the network with the mentioned containers.
 - update the front-end code to reflect the new ip address (to connect to the database)
 
-###Database
+### Database
 - CD to the project's root folder.
 - ```
     cd docker-pgsql-v1
