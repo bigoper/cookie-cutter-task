@@ -1,7 +1,7 @@
 # docker-coockiecutter-python-flask-pgsql
 Running a Flask app with pgsql on two docker containers
 - ```docker-flask-simple-v1``` folder containing the web application (front-end)
-- ```docker-pgsql``` folder containing the database (postgresql)
+- ```docker-pgsql-v1``` folder containing the database (postgresql)
 
 ## Tools
 - We need to reverse engineer our existing database to generate the python models that SQLAlchemy can use.
