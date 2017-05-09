@@ -65,5 +65,5 @@ chmod +x *.sh
 ```
 >NOTE: now you have 2 running containers.
 
-##Test
+## Test
 - open your browser to `http://0.0.0.0:5000/` you'll see the index page and the data from the database.
