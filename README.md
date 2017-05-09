@@ -3,13 +3,10 @@ Running a Flask app with pgsql on two docker containers
 - ```docker-flask-simple-v1``` folder containing the web application (front-end)
 - ```docker-pgsql``` folder containing the database (postgresql)
 
-##Tools
+## Tools
 - We need to reverse engineer our existing database to generate the python models that SQLAlchemy can use.
 
     qlacodegen --outfile models.py postgres://globality:globality@127.0.0.1:5432/globality
-
-##Pre-requisites
-- local ```/Users/bigoper/srv/docker/``` folder (or any existing folder, with write permissions)
 
 
 ## Resources
