@@ -26,22 +26,22 @@ Start by cloning the git repository
 ## Networking
 We need to allow the 2 containers to communicate
 - run the following commands to create a network to hold the containers.
-- ```
-    docker network create -d bridge --subnet 172.72.72.0/24 demo_network
-    docker network inspect demo_network
-    ```
+```
+docker network create -d bridge --subnet 172.72.72.0/24 demo_network
+docker network inspect demo_network
+```
 - the last command will show you the network with the mentioned containers.
 - update the front-end code to reflect the new ip address (to connect to the database)
 
 ### Database
 - CD to the project's root folder.
-- ```
-    cd docker-pgsql-v1
-    chmod +x *.sh
-    ./clean-docker.sh   
-    ./build.sh   
-    ./run.sh
-    ```
+```
+cd docker-pgsql-v1
+chmod +x *.sh
+./clean-docker.sh   
+./build.sh   
+./run.sh
+```
 - database info
     - db_user: globality
     - db_pass: globality
@@ -49,17 +49,20 @@ We need to allow the 2 containers to communicate
     - table: members
     - ip address: 172.72.72.10
 - import demo data
-    - ```cat globality.sql | docker exec -i pgsql psql -U globality```
 
-###Web
+```
+cat globality.sql | docker exec -i pgsql psql -U globality
+```
+
+### Web
 - CD to the project's root folder.
-- ```
-    cd docker-flask-simple-v1
-    chmod +x *.sh
-    ./clean-docker.sh   
-    ./build.sh   
-    ./run.sh
-    ```
+```
+cd docker-flask-simple-v1
+chmod +x *.sh
+./clean-docker.sh   
+./build.sh   
+./run.sh
+```
 >NOTE: now you have 2 running containers.
 
 ##Test
