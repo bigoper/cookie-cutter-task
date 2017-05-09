@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-docker run --volume /Users/bigoper/GitHub/globality/docker-pgsql-v1:/var/lib/postgresql \
+docker run --volume /Users/bigoper/GitHub/globality/docker-coockiecutter-python-flask-pgsql/docker-pgsql-v1:/var/lib/postgresql \
     --env 'DB_USER=globality' \
     --env 'DB_PASS=globality' \
     --env 'DB_NAME=globality' \

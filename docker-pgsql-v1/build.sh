@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-docker pull sameersbn/postgresql:9.6-2
+docker build -t sameersbn/postgresql github.com/sameersbn/docker-postgresql
