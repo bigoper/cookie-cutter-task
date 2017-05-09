@@ -15,15 +15,15 @@ Running a Flask app with pgsql on two docker containers
 
 ## General idea
 We'll be running two docker containers, flask for the front-end and postgresql for the back-end.
-
 The main (index) page will present data from the back-end, a list of members.
 
+- we'll clone the git project, init 2 containers, import data and test :)
 
-##Usage
-Clone the git repository
+## Usage
+Start by cloning the git repository
 - ```git clone https://github.com/bigoper/docker-coockiecutter-python-flask-pgsql.git```
 
-##Networking
+## Networking
 We need to allow the 2 containers to communicate
 - run the following commands to create a network to hold the containers.
 - ```
