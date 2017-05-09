@@ -1,0 +1,25 @@
+# Install from a well-supported, minimal Linux.
+FROM debian:jessie
+
+# Install core packages, especially Python.
+#
+# Most services will use the same set of packages here, though a few will install
+# custom dependencies for native requirements.
+#
+
+ARG EXTRA_INDEX_URL
+ENV EXTRA_INDEX_URL ${EXTRA_INDEX_URL}
+
+ENV CORE_PACKAGES locales python3 python3-pip libpython3.4
+ENV BUILD_PACKAGES build-essential python3-dev libffi-dev libssl-dev libpcre3-dev libpq-dev
+
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends ${CORE_PACKAGES} && \
+    update-alternatives --install /usr/bin/python python /usr/bin/python3 1 && \
+    update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 1 && \
+    pip install --upgrade pip && \
+    apt-get install -y --no-install-recommends ${BUILD_PACKAGES} && \
+    pip install --upgrade uwsgi && \
+    apt-get autoremove -y && \
+    rm -rf /var/lib/apt/lists/*
+

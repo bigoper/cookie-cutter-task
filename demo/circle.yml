@@ -1,0 +1,64 @@
+# CircleCI Configuration file
+
+
+machine:
+  pre:
+    # we love jq
+    - sudo apt-get update && sudo apt-get install -yq jq
+    # install a reasonable version of Docker
+    - sudo curl -sSL https://s3.amazonaws.com/circle-downloads/install-circleci-docker.sh | bash -s -- 1.10.0
+  services:
+    - docker
+
+
+dependencies:
+  override:
+    # make sure docker is running
+    - docker info
+    - if [ "${CIRCLE_BRANCH/#feature/}" != "${CIRCLE_BRANCH}" ] || [ "${CIRCLE_BRANCH}" = "develop" ]; then echo "." > requirements.txt; fi
+    - ./build.sh:
+        pwd:
+          build.demo/docker-base
+    - ./build.demo/docker-build.sh
+
+
+database:
+  pre:
+    - docker pull postgres
+  override:
+    # start postgres test database
+    - docker run --rm --name demo_db -e POSTGRES_DB=demo_test_db -e POSTGRES_USER=demo postgres:
+        background: true
+
+
+test:
+  override:
+    # run linting
+    - docker run -it --rm demo:${CIRCLE_SHA1} lint
+    # run unit tests
+    - docker run -it --rm --link demo_db:postgres -e DEMO_POSTGRES_HOST=postgres -v $(pwd)/demo/tests:/src/demo/tests demo:${CIRCLE_SHA1} test
+    # stop test database
+    - docker stop "demo_db"
+
+
+deployment:
+  feature:
+    branch: /feature\/.*/
+    commands:
+      - docker tag demo:${CIRCLE_SHA1} ${AWS_ECR_DOMAIN}/demo:${CIRCLE_BRANCH//\//-}
+  dev:
+    branch: develop
+    commands:
+      - docker tag demo:${CIRCLE_SHA1} ${AWS_ECR_DOMAIN}/demo:develop
+  test:
+    branch: /release\/.*/
+    commands:
+      - docker tag demo:${CIRCLE_SHA1} ${AWS_ECR_DOMAIN}/demo:${CIRCLE_BRANCH//\//-}
+  staging:
+    tag: /[0-9]+(\.[0-9]+)*/
+    commands:
+      - docker tag demo:${CIRCLE_SHA1} ${AWS_ECR_DOMAIN}/demo:${CIRCLE_TAG}
+  hotfix:
+    branch: /hotfix\/.*/
+    commands:
+      - docker tag demo:${CIRCLE_SHA1} ${AWS_ECR_DOMAIN}/demo:${CIRCLE_BRANCH//\//-}

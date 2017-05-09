@@ -1,0 +1,12 @@
+.
+# Flask
+Flask==0.12.1
+Jinja2==2.9.6
+
+# Database
+Flask-SQLAlchemy==2.2
+psycopg2==2.7.1
+SQLAlchemy==1.1.9
+
+# Debug toolbar
+Flask-DebugToolbar==0.10.1
